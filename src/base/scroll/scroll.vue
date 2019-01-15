@@ -1,21 +1,3 @@
-Skip to content
-
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- @liugezhou Sign out
-139
-0 620 liugezhou/vue-music Private
-forked from ustbhuangyi/vue-music
- Code  Pull requests 0  Projects 0  Wiki  Insights  Settings
-vue-music/src/base/scroll/scroll.vue
-c0f3585  on 5 May 2017
-@ustbhuangyi ustbhuangyi 完成歌手页面
-
-80 lines (74 sloc)  1.54 KB
 <template>
   <div ref="wrapper">
     <slot></slot>
