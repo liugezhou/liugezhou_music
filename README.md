@@ -26,4 +26,4 @@ CSS3D
 # 个人博客
 项目总结同步与我的[个人博客](https://liugezhou.github.io/)
 
-![liugezhou's-blog.png](https://upload-images.jianshu.io/upload_images/2054455-519fe7ef2346b9e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![liugezhou's-blog.png](http://img.liugezhou.online/Vue2-0%E5%BC%80%E5%8F%91%E4%BC%81%E4%B8%9A%E7%BA%A7%E7%A7%BB%E5%8A%A8%E9%9F%B3%E4%B9%90APP.png)
