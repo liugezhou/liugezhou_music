@@ -11,7 +11,7 @@
             </div>
           </slider>
         </div>
-        <div class="recommend-list">
+        <div class="recommend-list" ref="recommendList">
           <h1 class="list-title">热门歌单推荐</h1>
             <ul>
               <li v-for="item in discList" :key="item.dissid" class="item">
@@ -39,8 +39,10 @@
   import Slider from 'base/slider/slider'
   import { getRecommend ,getDiscList} from 'api/recommend'
   import { ERR_OK} from 'api/config'
+  import { playlistMixin} from 'common/js/mixin'
 
   export default {
+    mixins: [playlistMixin],
     data () {
       return {
         recommends:[],
@@ -52,6 +54,11 @@
       this._getDiscList()
     },
     methods: {
+      handlePlaylist(playlist) {
+        const bottom = playlist.length >0 ? '60px' : ''
+        this.$refs.recommend.style.bottom = bottom
+        this.$refs.scroll.refresh()
+      },
       loadImage() {
         if (!this.checkloaded) {
           this.checkloaded = true
