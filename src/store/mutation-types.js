@@ -13,3 +13,5 @@ export const SET_MODE = 'SET_MODE'
 export const SET_CURRENTINDEX = 'SET_CURRENTINDEX'
 
 export const SET_DISC = 'SET_DISC'
+
+export const SET_TOPLIST = 'SET_TOPLIST'
