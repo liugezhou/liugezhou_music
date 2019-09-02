@@ -3,7 +3,10 @@
           :data="result"  
           ref="suggest" 
           :pullup="pullup"
-          @scrollToEnd="searchMore">
+          :beforeScroll="beforeScroll"
+          @scrollToEnd="searchMore"
+          @beforeScroll="listScroll"
+          >
     <ul class="suggest-list">
       <li @click="selectItem(item)" class="suggest-item" v-for="(item,index) in result">
         <div class="icon">
@@ -15,6 +18,9 @@
       </li>
       <loading v-show="hasMore" title=""></loading>
     </ul>
+    <div class="no-result-wrapper" v-show="!hasMore && !result.length">
+      <no-result title="抱歉，没有搜索结果"></no-result>
+    </div>
   </scroll>
 </template>
 
@@ -26,6 +32,7 @@ import Scroll from 'base/scroll/scroll'
 import Loading from 'base/loading/loading'
 import Singer from 'common/js/singer'
 import { mapMutations, mapActions} from 'vuex'
+import  NoResult from 'base/no-result/no-result'
 
 const TYPE_SINGER = 'singer'
 const perpage = 20
@@ -46,7 +53,8 @@ export default {
       page: 1,
       result: [],
       pullup: true,
-      hasMore: true
+      hasMore: true,
+      beforeScroll: true
     }
   },
   methods: {
@@ -61,9 +69,9 @@ export default {
         }
       })
     },
-    _checkmore(res){
-      const songs = res.song
-      if(!songs.list.length && (songs.curum + songs.curpage * 20) > songs.totalnum) {
+    _checkmore(data){
+      const song = data.song
+      if (!song.list.length || (song.curnum + (song.curpage - 1) * perpage) >= song.totalnum) {
         this.hasMore = false
       }
     },
@@ -125,6 +133,13 @@ export default {
       }else{
         this.insertSong(item)
       }
+      this.$emit('select')
+    },
+    listScroll() {
+      this.$emit('listScroll')
+    },
+    refresh() {
+      this.$refs.suggest.refresh()
     },
     ...mapMutations({
       setSinger: 'SET_SINGER'
@@ -140,7 +155,8 @@ export default {
   },
   components: {
     Scroll,
-    Loading
+    Loading,
+    NoResult
   }
 }
 </script>
