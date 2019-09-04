@@ -99,7 +99,7 @@
     <play-list ref="playlist"></play-list> 
     <audio ref="audio" 
           :src="currentSong.url" 
-          @canplay="ready" 
+          @play="ready" 
           @error="error"
           @timeupdate="updateTime"
           @ended="end"
@@ -245,6 +245,7 @@
           }
           if(this.playlist.length === 1) {
             this.loop()
+            return
           } else {
             let index = this.currentIndex - 1
             if(index === -1) {
@@ -263,6 +264,7 @@
           }
           if(this.playlist.length === 1){
             this.loop()
+            return
           }else{
             let index = this.currentIndex + 1
             if(index === this.playlist.length) {
@@ -326,11 +328,14 @@
         },
         getLyric() {
           this.currentSong.getLyric().then((lyric) => {
-              this.currentLyric = new Lyric(lyric, this.hanleLyric)
-              if(this.playing){
-                this.currentLyric.play()
-              }
-            }).catch(() => {
+            if(this.currentSong.lyric !== lyric) {
+              return
+            }
+            this.currentLyric = new Lyric(lyric, this.hanleLyric)
+            if(this.playing){
+              this.currentLyric.play()
+            }
+          }).catch(() => {
               this.currentLyric = null
               this.playingLyric = ''
               this.currentLineNum = 0
@@ -427,8 +432,12 @@
         }
         if(this.currentLyric) {
           this.currentLyric.stop()
+          this.currentTime = 0
+          this.playingLyric = ''
+          this.currentLineNum = 0
         }
-        setTimeout(()=> {
+        clearTimeout(this.timer)
+        this.timer = setTimeout(()=> {
           this.$refs.audio.play()
           this.getLyric()
         },1000)

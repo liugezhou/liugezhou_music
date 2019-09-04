@@ -24,5 +24,9 @@
 
 > ![Vue-music专题.png](http://img.liugezhou.online/Vue2-0%E5%BC%80%E5%8F%91%E4%BC%81%E4%B8%9A%E7%BA%A7%E7%A7%BB%E5%8A%A8%E9%9F%B3%E4%B9%90APP.png)
 
+# 代码说明
+> 分之开发，其中chapter1-chapter15分为十五个章节进行每节课的代码提交，optimize为项目完结后的代码修改、优化。 
+> master分之为项目最终代码。
+
 # 说明
 > 项目代码已完结，文章总结还未更新完毕。
