@@ -45,15 +45,15 @@
         })
       },
       _normalizeSinger(list) {
-        let map ={
+        let map = {
           hot: {
             title:HOT_NAME,
             items:[]
           }
         }
         list.forEach((item,index) => {
-          if(index <HOT_SINGER_LEN){
-            map.hot.items.push(new Singer({
+          if(index < HOT_SINGER_LEN) {
+            map.hot.items.push(new Singer ({
               name: item.Fsinger_name,
               id: item.Fsinger_mid
             }))
@@ -65,7 +65,7 @@
               items: []
             }
           }
-          map[key].items.push(new Singer({
+          map[key].items.push(new Singer ({
             name: item.Fsinger_name,
             id: item.Fsinger_mid
           }))

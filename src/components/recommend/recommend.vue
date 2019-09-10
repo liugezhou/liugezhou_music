@@ -25,7 +25,6 @@
               </li>
             </ul>
         </div>
-
       </div>
       <div class="loading-container" v-show="!discList.length">
         <loading></loading>
