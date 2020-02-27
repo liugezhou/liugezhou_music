@@ -7,7 +7,7 @@ import fastclick from 'fastclick'
 import VueLazyload from 'vue-lazyload'
 
 /* eslint-disable no-unused-vars */
-import vConsole from 'vconsole'
+// import vConsole from 'vconsole'
 
 // Vue.config.productionTip = false
 import 'common/stylus/index.styl'
