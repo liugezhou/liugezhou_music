@@ -18,7 +18,7 @@ export function getHotSearch() {
 
 export function search(query, page, zhida, perpage) {
   // const url = debug ? '/api/search' : 'http://ustbhuangyi.com/music/api/search'
-  const url = debug ? '/api/search' : 'http://music.liugezhou.online/api/search'
+  const url = debug ? '/api/search' : 'http://music.liugezhou.online/music/api/search'
   const data = Object.assign({}, commonParams, {
     w: query,
     p: page,
