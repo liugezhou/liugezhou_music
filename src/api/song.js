@@ -7,7 +7,7 @@ const debug = process.env.NODE_ENV !== 'production'
 
 export function getLyric (mid) {
   // const url = debug ? '/api/lyric' : 'http://ustbhuangyi.com/music/api/lyric'
-  const url = debug ? '/api/lyric' : 'http://music.liugezhou.online/music/api/lyric'
+  const url = debug ? '/api/lyric' : 'http://music.liugezhou.online/api/lyric'
 
   const data = Object.assign({}, commonParams, {
     songmid: mid,
@@ -28,7 +28,7 @@ export function getLyric (mid) {
 
 export function getSongsUrl (songs) {
   // const url = debug ? '/api/getPurlUrl' : 'http://ustbhuangyi.com/music/api/getPurlUrl'
-  const url = debug ? '/api/getPurlUrl' : 'http://music.liugezhou.online/music/api/getPurlUrl'
+  const url = debug ? '/api/getPurlUrl' : 'http://music.liugezhou.online/api/getPurlUrl'
 
   let mids = []
   let types = []
