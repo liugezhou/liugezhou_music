@@ -24,7 +24,7 @@ module.exports = {
       "ref"  : 'origin/master',
       "repo" : 'git@github.com:liugezhou/liugezhou_music.git',
       "path" : '/www/vuemusic/production',
-      'post-deploy' : 'pm2 reload ecosystem.config.js --env production'
+      'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env production'
     }
   }
 };
